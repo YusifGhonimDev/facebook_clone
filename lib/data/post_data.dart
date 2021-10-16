@@ -17,6 +17,4 @@ class PostData {
       this.numOfLikes,
       this.isLiked,
       this.buttonColor});
-
-  get getNumOfLikes => numOfLikes;
 }
