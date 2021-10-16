@@ -65,7 +65,6 @@ class _TimeLineScreenState extends State<TimeLineScreen> {
       if (postTemplate[index].isLiked == false) {
         postTemplate[index].buttonColor = Colors.blue;
         postTemplate[index].numOfLikes = postTemplate[index].numOfLikes! + 1;
-
         postTemplate[index].isLiked = true;
       } else {
         postTemplate[index].buttonColor = Colors.grey;
