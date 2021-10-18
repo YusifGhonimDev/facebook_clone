@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:facebook_clone/data/post_data.dart';
 
 class TimeLineScreen extends StatefulWidget {
-  const TimeLineScreen({Key? key}) : super(key: key);
+  final TextEditingController? username;
+
+  const TimeLineScreen({Key? key, this.username}) : super(key: key);
 
   @override
   State<TimeLineScreen> createState() => _TimeLineScreenState();
@@ -77,22 +79,29 @@ class _TimeLineScreenState extends State<TimeLineScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(actions: [
-        TextButton(
-          onPressed: () => Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => const LogInScreen())),
-          child: const Padding(
-            padding: EdgeInsets.only(right: 15.0),
-            child: Text(
-              "Logout",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 15,
-              ),
+      appBar: AppBar(
+          title: Text(
+            "Welcome, ${widget.username!.text}",
+            style: const TextStyle(
+              fontSize: 15,
             ),
           ),
-        ),
-      ]),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => const LogInScreen())),
+              child: const Padding(
+                padding: EdgeInsets.only(right: 15.0),
+                child: Text(
+                  "Logout",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                  ),
+                ),
+              ),
+            ),
+          ]),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
         child: ListView.builder(
